@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "antontelle", "antontelle\antontelle.csproj", "{49A3232B-5792-4A48-89D9-A20AF33EBC04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{393DC0F1-9E4F-44EB-AB8A-5C29D46B10DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49A3232B-5792-4A48-89D9-A20AF33EBC04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49A3232B-5792-4A48-89D9-A20AF33EBC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49A3232B-5792-4A48-89D9-A20AF33EBC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49A3232B-5792-4A48-89D9-A20AF33EBC04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{393DC0F1-9E4F-44EB-AB8A-5C29D46B10DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{393DC0F1-9E4F-44EB-AB8A-5C29D46B10DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{393DC0F1-9E4F-44EB-AB8A-5C29D46B10DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{393DC0F1-9E4F-44EB-AB8A-5C29D46B10DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
