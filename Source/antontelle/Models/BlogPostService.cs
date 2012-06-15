@@ -7,8 +7,7 @@ namespace antontelle.Models
 	{
 		public IEnumerable<BlogPost> BlogPosts()
 		{
-			return new List<BlogPost>
-			       	{new BlogPost {Title = "post1", Content = "conten1"}, new BlogPost {Title = "post2", Content = "content2"}};
+			return new List<BlogPost> { new BlogPost { Id = 0, Title = "post1", Content = "content1" }, new BlogPost { Id = 1, Title = "post2", Content = "content2" } };
 		}
 	}
 }

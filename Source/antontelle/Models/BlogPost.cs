@@ -1,8 +1,11 @@
-﻿namespace antontelle.Models
+﻿using System;
+
+namespace antontelle.Models
 {
 	public class BlogPost
 	{
-		public string Title;	  
-		public string Content;
+		public int Id;
+		public string Title { get; set; }
+		public string Content { get; set; }
 	}
 }

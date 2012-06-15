@@ -1,8 +1,38 @@
-﻿@model IEnumerable<BlogPost>
+﻿@model IEnumerable<antontelle.Models.BlogPost>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All Blog Posts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Content</th>
+    </tr>
+
+@foreach (var item in Model) {
+    @:this is only text
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+        <td>
+            T = @item.Title
+            @@latentlone
+        </td>
+        <td>
+            @item.Content
+        </td>
+    </tr>
+}
+
+</table>
 
