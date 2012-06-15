@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using antontelle.Models;
+using Autofac;
+using Autofac.Integration.Mvc;
 
 namespace antontelle
 {
@@ -31,6 +34,11 @@ namespace antontelle
 
 		protected void Application_Start()
 		{
+			var builder = new ContainerBuilder();
+			builder.RegisterControllers(typeof(MvcApplication).Assembly);
+			builder.RegisterType<BlogPostService>().As<IBlogPostService>().InstancePerHttpRequest();
+			var container = builder.Build();
+			DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 			AreaRegistration.RegisterAllAreas();
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
