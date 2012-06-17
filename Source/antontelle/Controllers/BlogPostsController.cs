@@ -21,7 +21,7 @@ namespace antontelle.Controllers
 
         public ActionResult Index()
         {
-        	var model = BlogPostService.BlogPosts();
+			var model = BlogPostService.BlogPosts();
             return View(model);
         }
 
@@ -38,6 +38,16 @@ namespace antontelle.Controllers
 			if (TryUpdateModel(blogPost))
 				return RedirectToAction("Index");
 			return View(blogPost);
+		}
+
+		public ViewResult Search(string query)
+		{
+			var results = BlogPostService.Search(query);
+			return View(new SearchResultsViewModel
+			            	{
+			            		Query = query,
+								Results = results
+			            	});
 		}
 
     }
