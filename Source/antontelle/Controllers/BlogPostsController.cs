@@ -40,8 +40,11 @@ namespace antontelle.Controllers
 			return View(blogPost);
 		}
 
-		public ViewResult Search(string query)
+		public ActionResult Search(string query)
 		{
+			if(query == "round")
+				return RedirectToAction("Search",new {query = "post"});
+
 			var results = BlogPostService.Search(query);
 			return View(new SearchResultsViewModel
 			            	{

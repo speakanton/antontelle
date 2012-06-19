@@ -82,6 +82,7 @@
     <Content Include="App_Data\antontelle_log.ldf">
       <DependentUpon>antontelle.mdf</DependentUpon>
     </Content>
+    <Content Include="default.htm" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\jquery-ui.css" />
