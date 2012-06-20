@@ -6,21 +6,21 @@ namespace antontelle.Models
 {
 	public class BlogPostService : IBlogPostService
 	{
-		private IEnumerable<BlogPost> _blogPosts= new List<BlogPost>
-					       	{
-					       		new BlogPost {Id = 0, Title = "post1", Content = "content1"},
-					       		new BlogPost {Id = 1, Title = "post2", Content = "content2"}
-					       	};
-		public IEnumerable<BlogPost> BlogPosts()
+		private IList<BlogPost> _blogPosts;
+
+		public IQueryable<BlogPost> BlogPosts()
 		{
-				return _blogPosts;
+			_blogPosts = new List<BlogPost>();
+			for (var i = 1; i <= 17; ++i)
+				_blogPosts.Add(new BlogPost {Id = i, Title = "post" + i, Content = "content" + i});
+			return _blogPosts.AsQueryable();
 		}
 
-		public IEnumerable<BlogPost> Search(string query)
+		public IQueryable<BlogPost> Search(string query)
 		{
 			if (String.IsNullOrEmpty(query))
-				return _blogPosts;
-			return _blogPosts.Where(b => (b.Title.Contains(query) || b.Content.Contains(query)));
+				return BlogPosts();
+			return BlogPosts().Where(b => (b.Title.Contains(query) || b.Content.Contains(query)));
 		}
 	}
 }

@@ -40,12 +40,15 @@ namespace antontelle.Controllers
 			return View(blogPost);
 		}
 
-		public ActionResult Search(string query)
+		public ActionResult Search(string query, int page = 1)
 		{
+			var pageIndex = page - 1;
+			const int pageSize = 5;
 			if(query == "round")
 				return RedirectToAction("Search",new {query = "post"});
 
-			var results = BlogPostService.Search(query);
+			var results = new PagedList<BlogPost>(BlogPostService.Search(query), pageIndex, pageSize);
+
 			return View(new SearchResultsViewModel
 			            	{
 			            		Query = query,

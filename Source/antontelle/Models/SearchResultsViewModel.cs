@@ -8,6 +8,6 @@ namespace antontelle.Models
 	public class SearchResultsViewModel
 	{
 		public string Query { get; set; }
-		public IEnumerable<BlogPost> Results { get; set; }
+		public PagedList<BlogPost> Results { get; set; }
 	}
 }

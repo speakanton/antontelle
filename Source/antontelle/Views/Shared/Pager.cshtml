@@ -1,0 +1,27 @@
+﻿@model antontelle.Models.SearchResultsViewModel
+
+<div id="pager">
+    @if (Model.Results.HasPreviousPage)
+    {
+        @Html.ActionLink("<<<","Search", new { Query = Model.Query, Page = Model.Results.PreviousPage })
+    }
+    @for (int i = 1; i <= Model.Results.TotalPages; ++i)
+    {
+        if (Model.Results.IsCurrentPage(i))
+        {
+            <b>@i |</b>
+        }
+        else if (i < Model.Results.TotalPages)
+        {
+            @Html.ActionLink(i + " |", "Search", new { Query = Model.Query, Page = i })
+        }
+        else
+        {
+            @Html.ActionLink(i + "", "Search", new { Query = Model.Query, Page = i })
+        }
+    }         
+    @if (Model.Results.HasNextPage)
+    {
+        @Html.ActionLink(">>>", "Search", new { Query = Model.Query, Page = Model.Results.NextPage })
+    }
+</div>

@@ -5,7 +5,7 @@ namespace antontelle.Models
 {
 	public interface IBlogPostService
 	{
-		IEnumerable<BlogPost> BlogPosts();
-		IEnumerable<BlogPost> Search(string query);
+		IQueryable<BlogPost> BlogPosts();
+		IQueryable<BlogPost> Search(string query);
 	}
 }
