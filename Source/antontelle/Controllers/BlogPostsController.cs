@@ -25,13 +25,28 @@ namespace antontelle.Controllers
             return View(model);
         }
 
+		[HttpGet]
+		public ActionResult Create()
+		{
+			var blogPost = new BlogPost();
+			blogPost.Title = "GenericTitle";
+			return View(blogPost);
+		}
+
+		[HttpPost]
+		public ActionResult Create(BlogPost blogPost)
+		{
+			BlogPostService.Add(blogPost);
+			return RedirectToAction("Index");
+		}
+
 		public ActionResult Edit(int id)
 		{
 			var blogPost = BlogPostService.BlogPosts().First(b => b.Id == id);
 			return View(blogPost);
 		}
 
-		[HttpPost]
+		[HttpPost] 
 		public ActionResult Edit(int id, FormCollection collection)
 		{
 			var blogPost = BlogPostService.BlogPosts().First(b => b.Id == id);

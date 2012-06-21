@@ -7,5 +7,6 @@ namespace antontelle.Models
 	{
 		IQueryable<BlogPost> BlogPosts();
 		IQueryable<BlogPost> Search(string query);
+		void Add(BlogPost blogPost);
 	}
 }
