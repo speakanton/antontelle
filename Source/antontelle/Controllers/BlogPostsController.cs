@@ -29,7 +29,7 @@ namespace antontelle.Controllers
 		public ActionResult Create()
 		{
 			var blogPost = new BlogPost();
-			blogPost.Title = "GenericTitle";
+			blogPost.PublishedOn = DateTime.Now;
 			return View(blogPost);
 		}
 

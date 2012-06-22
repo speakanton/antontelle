@@ -10,8 +10,9 @@ namespace antontelle.Models
 
 		static BlogPostService()
 		{
+			var rand = new Random();
 			for (var i = 1; i <= 17; ++i)
-				_blogPosts.Add(new BlogPost { Id = i, Title = "post" + i, Content = "content" + i });
+				_blogPosts.Add(new BlogPost { Id = i, Title = "post" + i, Content = "content" + i, PublishedOn = DateTime.Now, Category = (Category) rand.Next(0,4)});
 		}
 
 		public IQueryable<BlogPost> BlogPosts()
@@ -28,6 +29,7 @@ namespace antontelle.Models
 
 		public void Add(BlogPost blogPost)
 		{
+			blogPost.Id = _blogPosts.Last().Id + 1;
 			_blogPosts.Add(blogPost);
 		}
 	}
