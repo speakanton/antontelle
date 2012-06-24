@@ -1,0 +1,4 @@
+﻿@model antontelle.Models.Category
+
+@Html.DropDownListFor(model => model, new SelectList(Enum.GetValues(typeof(antontelle.Models.Category))))
+

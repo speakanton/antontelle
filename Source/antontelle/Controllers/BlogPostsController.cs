@@ -28,9 +28,8 @@ namespace antontelle.Controllers
 		[HttpGet]
 		public ActionResult Create()
 		{
-			var blogPost = new BlogPost();
-			blogPost.PublishedOn = DateTime.Now;
-			return View(blogPost);
+			var initialBlogPost = new BlogPost {PublishedOnDate = DateTime.Now.Date};
+			return View(initialBlogPost);
 		}
 
 		[HttpPost]

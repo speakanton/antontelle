@@ -43,6 +43,8 @@ namespace antontelle
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
+
+			ModelMetadataProviders.Current = new BlogPostMetadataProvider();
 		}
 	}
 }

@@ -12,7 +12,7 @@ namespace antontelle.Models
 		{
 			var rand = new Random();
 			for (var i = 1; i <= 17; ++i)
-				_blogPosts.Add(new BlogPost { Id = i, Title = "post" + i, Content = "content" + i, PublishedOn = DateTime.Now, Category = (Category) rand.Next(0,4)});
+				_blogPosts.Add(new BlogPost { Id = i, Title = "post" + i, Content = "content" + i, PublishedOnDate = DateTime.Now, Category = (Category) rand.Next(0,4)});
 		}
 
 		public IQueryable<BlogPost> BlogPosts()

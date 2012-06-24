@@ -1,20 +1,19 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace antontelle.Models
 {
-	public class BlogPost
+	public partial class BlogPost
 	{
-		public int Id;
+		public int Id { get; set; }
 		
 		public string Title { get; set; }
 
-		[DataType(DataType.MultilineText)]
-		[DisplayName("Text of Blogpost")]
 		public string Content { get; set; }
 		
-		public DateTime PublishedOn { get; set; }
+		public DateTime PublishedOnDate { get; set; }
 		
 		public Category Category { get; set; }
 	}
@@ -25,5 +24,26 @@ namespace antontelle.Models
 		Friedrich,
 		Futsal,
 		Beachvolleyball
+	}
+
+	[MetadataType(typeof(BlogPostMetadata))]
+	public partial class BlogPost
+	{
+		// not used, except for metadata
+		class BlogPostMetadata
+		{
+			[HiddenInput(DisplayValue = false)]
+			public int Id { get; set; }
+
+			public string Title { get; set; }
+
+			[DataType(DataType.MultilineText)]
+			[DisplayName("Text of Blogpost")]
+			public string Content { get; set; }
+
+			public DateTime PublishedOnDate { get; set; }
+
+			public Category Category { get; set; }
+		}
 	}
 }
