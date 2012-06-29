@@ -45,6 +45,8 @@ namespace antontelle
 			RegisterRoutes(RouteTable.Routes);
 
 			ModelMetadataProviders.Current = new BlogPostMetadataProvider();
+
+			ModelBinders.Binders.Add(typeof(DateTime), new NaturalDatesModelBinder());
 		}
 	}
 }

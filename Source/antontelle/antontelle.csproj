@@ -76,6 +76,7 @@
     <Compile Include="Models\BlogPostService.cs" />
     <Compile Include="Models\IBlogPostService.cs" />
     <Compile Include="Helpers\Pager.cs" />
+    <Compile Include="Models\NaturalDatesModelBinder.cs" />
     <Compile Include="Models\SearchResultsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -157,6 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\Category.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DateTimeEnglishParser\DateTimeEnglishParser.csproj">
+      <Project>{3141D6D0-4FCD-4355-8732-16D705406FB6}</Project>
+      <Name>DateTimeEnglishParser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

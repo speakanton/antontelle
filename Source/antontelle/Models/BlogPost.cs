@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace antontelle.Models
 {
+	[Bind(Exclude = "Id")]
 	public partial class BlogPost
 	{
 		public int Id { get; set; }

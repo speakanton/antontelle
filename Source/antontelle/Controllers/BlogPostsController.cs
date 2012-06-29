@@ -32,9 +32,14 @@ namespace antontelle.Controllers
 			return View(initialBlogPost);
 		}
 
-		[HttpPost]
-		public ActionResult Create(BlogPost blogPost)
+		[HttpPost][ActionName("Create")]
+		public ActionResult Create_Post()
 		{
+			var blogPost = new BlogPost();
+			if(!TryUpdateModel(blogPost))
+			{
+				//...
+			}
 			BlogPostService.Add(blogPost);
 			return RedirectToAction("Index");
 		}
