@@ -74,6 +74,8 @@
     <Compile Include="Models\BlogPost.cs" />
     <Compile Include="Models\BlogPostMetadataProvider.cs" />
     <Compile Include="Models\BlogPostService.cs" />
+    <Compile Include="Models\BlogPostsValidationProvider.cs" />
+    <Compile Include="Models\ExcludeWordsAttribute.cs" />
     <Compile Include="Models\IBlogPostService.cs" />
     <Compile Include="Helpers\Pager.cs" />
     <Compile Include="Models\NaturalDatesModelBinder.cs" />
@@ -102,6 +104,7 @@
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\CustomValidationRules.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

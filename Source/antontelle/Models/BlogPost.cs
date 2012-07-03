@@ -36,8 +36,12 @@ namespace antontelle.Models
 			[HiddenInput(DisplayValue = false)]
 			public int Id { get; set; }
 
+			[Required(ErrorMessage = "Please enter a title.")]
+			[StringLength(60, ErrorMessage = "No more than 60 characters, please.")]
+			[ExcludeWords("fuck", "shit")]
 			public string Title { get; set; }
 
+			[Required(ErrorMessage = "Please enter something worthwhile to read.")]
 			[DataType(DataType.MultilineText)]
 			[DisplayName("Text of Blogpost")]
 			public string Content { get; set; }

@@ -32,19 +32,29 @@ namespace antontelle.Controllers
 			return View(initialBlogPost);
 		}
 
-		[HttpPost][ActionName("Create")]
+		[HttpPost]
+		[ActionName("Create")]
 		public ActionResult Create_Post()
 		{
 			var blogPost = new BlogPost();
-			if(!TryUpdateModel(blogPost))
+			// analogous to receiving the blogPost as a paramater
+			if (!TryUpdateModel(blogPost))
 			{
 				//...
 			}
-			BlogPostService.Add(blogPost);
-			return RedirectToAction("Index");
+
+			if (ModelState.IsValid)
+			{
+				BlogPostService.Add(blogPost);
+				return RedirectToAction("Index");
+			}
+			else // data is invalid
+			{
+				return View(blogPost);
+			}
 		}
 
-		public ActionResult Edit(int id)
+    	public ActionResult Edit(int id)
 		{
 			var blogPost = BlogPostService.BlogPosts().First(b => b.Id == id);
 			return View(blogPost);
