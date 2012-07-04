@@ -46,6 +46,7 @@ namespace antontelle.Models
 			[DisplayName("Text of Blogpost")]
 			public string Content { get; set; }
 
+			[DataType(DataType.Date)]
 			public DateTime PublishedOnDate { get; set; }
 
 			public Category Category { get; set; }
