@@ -12,19 +12,16 @@
     @RenderBody()
     Impressum
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     $(function () {
         jQuery.validator.unobtrusive.adapters.addBool('excludedwords');
     });
 </script>
-@*<script src="@Url.Content("~/Scripts/MicrosoftAjax.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/MicrosoftMvcValidation.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/CustomValidationRules.js")" type="text/javascript"></script>
 *@
-
     @Content.Script("jquery-1.4.4.min.js", Url)
     @Content.Script("jquery.validate.min.js", Url)
     @Content.Script("jquery.validate.unobtrusive.min.js", Url)
+    @Content.Script("CustomValidationRules.js", Url)
     @RenderSection("scripts", false)
 </body>
 </html>

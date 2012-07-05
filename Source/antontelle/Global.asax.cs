@@ -48,7 +48,7 @@ namespace antontelle
 
 			ModelBinders.Binders.Add(typeof(DateTime), new NaturalDatesModelBinder());
 
-			ModelValidatorProviders.Providers.Add(new BlogPostsValidationProvider());
+			//ModelValidatorProviders.Providers.Add(new BlogPostsValidationProvider());
 		}
 	}
 }
