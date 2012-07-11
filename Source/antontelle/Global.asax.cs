@@ -44,11 +44,10 @@ namespace antontelle
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 
+			// adding EditFormatString for Date-types
 			ModelMetadataProviders.Current = new BlogPostMetadataProvider();
 
 			ModelBinders.Binders.Add(typeof(DateTime), new NaturalDatesModelBinder());
-
-			//ModelValidatorProviders.Providers.Add(new BlogPostsValidationProvider());
 		}
 	}
 }

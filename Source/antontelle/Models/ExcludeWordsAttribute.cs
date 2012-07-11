@@ -10,24 +10,26 @@ namespace antontelle.Models
 	[AttributeUsage(AttributeTargets.Property)]
 	public class ExcludeWordsAttribute : ValidationAttribute, IClientValidatable
 	{
-		public string[] Words { get; private set; }
-		public new const string ErrorMessage = "Don't use the word '{0}'.";
+		public string Word { get; private set; }
+		public new string ErrorMessage;
 
-		public ExcludeWordsAttribute(params string[] words)
+		public ExcludeWordsAttribute(string words)
 		{
-			Words = words;
+			ErrorMessage = "Don't use the word " + Word;
+			Word = words;
 		}
 
 		public override string FormatErrorMessage(string name)
 		{
-			return "Don't use the word '{0}' in the " + name;
+			return ErrorMessage + " in the " + name;
 		}
 
 		public override bool IsValid(object value)
 		{
 			try
 			{
-				return !Words.Where(value.ToString().Contains).Any();
+				return String.Equals(value.ToString(), Word);
+				//return !Words.Where(value.ToString().Contains).Any();
 			}
 			catch (Exception)
 			{
@@ -35,15 +37,20 @@ namespace antontelle.Models
 			}
 		}
 
+		public class ModelClientValidationExcludeWordsRule : ModelClientValidationRule
+		{
+			public ModelClientValidationExcludeWordsRule(string errorMessage, string word)
+				: base()
+			{
+				this.ErrorMessage = errorMessage;
+				this.ValidationType = "excludedword";
+				this.ValidationParameters.Add("word", word);
+			}
+		}
+
 		public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
 		{
-			var rule = new ModelClientValidationRule
-			{
-				ErrorMessage = ErrorMessage,
-				ValidationType = "excludedwords"
-			};
-			rule.ValidationParameters["words"] = Words;
-			yield return rule;
+			yield return new ModelClientValidationExcludeWordsRule(ErrorMessage, Word);
 		}
 	}
 }

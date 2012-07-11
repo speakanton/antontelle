@@ -38,7 +38,7 @@ namespace antontelle.Models
 
 			[Required(ErrorMessage = "Please enter a title.")]
 			[StringLength(60, ErrorMessage = "No more than 60 characters, please.")]
-			[ExcludeWords("fuck", "shit")]
+			[ExcludeWords("shit")]
 			public string Title { get; set; }
 
 			[Required(ErrorMessage = "Please enter something worthwhile to read.")]
