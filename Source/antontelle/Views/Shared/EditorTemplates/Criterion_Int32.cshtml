@@ -1,0 +1,13 @@
+﻿@model int
+
+@{
+    var items = Enumerable
+        .Range(1, 5)
+        .Select(x => new SelectListItem 
+        { 
+            Value = x.ToString(), 
+            Text = "item " + x 
+        });
+}
+
+@Html.DropDownListFor(x => x, new SelectList(items, "Value", "Text", Model))

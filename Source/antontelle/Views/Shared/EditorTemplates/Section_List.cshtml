@@ -1,0 +1,17 @@
+﻿@model IList<antontelle.Models.Section>
+
+@using (Html.BeginForm())
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        for (int j = 0; j < Model[i].Criteria.Count; j++)
+        {
+        <div>
+            @Html.LabelFor(x => x[i].Criteria[j], Model[i].Criteria[j].Text)
+            @Html.EditorFor(x => x[i].Criteria[j].Value, "Criterion_" + Model[i].Criteria[j].Value.GetType().Name)
+        </div>
+        }
+    }
+
+    <button type="submit">OK</button>
+}
