@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -7,6 +8,15 @@ using antontelle.Models;
 
 namespace antontelle.Controllers
 {
+	public class SampleObject : DynamicObject
+	{
+		public override bool TryGetMember(
+			GetMemberBinder binder, out object result)
+		{
+			result = binder.Name;
+			return true;
+		}
+	}
     public class SectionsController : Controller
     {
         //
@@ -35,7 +45,9 @@ namespace antontelle.Controllers
 			            				           	}
 			            			}
 			            	};
-			return View(new { mdl = model });
+			dynamic wrapper = new ExpandoObject();
+			wrapper.mdl = model;
+			return View(wrapper);
 		}
 
     }
