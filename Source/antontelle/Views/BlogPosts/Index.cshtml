@@ -27,7 +27,7 @@
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
         <td>
-            T = @item.Title
+            @Html.RouteLink(item.Title, item.DetailsRouteValues())
         </td>
         <td>
             @item.Content

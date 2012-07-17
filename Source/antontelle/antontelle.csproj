@@ -81,6 +81,7 @@
     <Compile Include="Models\IBlogPostService.cs" />
     <Compile Include="Helpers\Pager.cs" />
     <Compile Include="Models\NaturalDatesModelBinder.cs" />
+    <Compile Include="Models\RoutingUtils.cs" />
     <Compile Include="Models\SearchResultsViewModel.cs" />
     <Compile Include="Models\Section.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,7 +91,7 @@
     <Content Include="App_Data\antontelle_log.ldf">
       <DependentUpon>antontelle.mdf</DependentUpon>
     </Content>
-    <Content Include="default.htm" />
+    <Content Include="_default.htm" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\jquery-ui.css" />
@@ -188,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\Section_List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BlogPosts\Details.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

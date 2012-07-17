@@ -85,5 +85,10 @@ namespace antontelle.Controllers
 			            	});
 		}
 
+		public ViewResult Details(int id)
+		{
+			var blogPost = BlogPostService.BlogPosts().First(b => b.Id == id);
+			return View(blogPost);
+		}
     }
 }

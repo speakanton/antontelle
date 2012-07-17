@@ -25,11 +25,17 @@ namespace antontelle
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
+				null, 
+				"BlogPosts/{id}", 
+				new {controller = "BlogPosts", action = "Details"},
+				new {id= @"\d+"} // regular expression
+				);
+
+			routes.MapRoute(
 				"Default", // Route name
 				"{controller}/{action}/{id}", // URL with parameters
-				new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-			);
-
+				new {controller = "BlogPosts", action = "Index", id = UrlParameter.Optional} // Parameter defaults
+				);
 		}
 
 		protected void Application_Start()
