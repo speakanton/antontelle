@@ -17,6 +17,12 @@ namespace antontelle.Controllers
 			return true;
 		}
 	}
+
+	public class SearchViewModel
+	{
+		public IList<Section> Sections { get; set; }
+	}
+
     public class SectionsController : Controller
     {
         //
@@ -46,7 +52,7 @@ namespace antontelle.Controllers
 			            			}
 			            	};
 			dynamic wrapper = new ExpandoObject();
-			wrapper.mdl = model;
+			wrapper.mdl = new SearchViewModel {Sections = model};
 			return View(wrapper);
 		}
 

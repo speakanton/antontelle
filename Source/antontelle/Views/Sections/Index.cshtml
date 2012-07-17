@@ -1,2 +1,6 @@
-﻿@Html.Editor("mdl", "Section_List")
+﻿@{
+    ViewData["SearchViewModel"] = (antontelle.Controllers.SearchViewModel)Model.mdl;
+}
+
+@Html.Editor("SearchViewModel", "Section_List")
 
