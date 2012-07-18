@@ -26,7 +26,7 @@ namespace antontelle
 
 			routes.MapRoute(
 				null, 
-				"BlogPosts/{id}", 
+				"BlogPosts/{Category}/{Title}/{id}", 
 				new {controller = "BlogPosts", action = "Details"},
 				new {id= @"\d+"} // regular expression
 				);

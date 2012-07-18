@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using antontelle.Models;
 
 namespace antontelle.Controllers
@@ -88,7 +90,15 @@ namespace antontelle.Controllers
 		public ViewResult Details(int id)
 		{
 			var blogPost = BlogPostService.BlogPosts().First(b => b.Id == id);
+			EnforceCanonicalUrl(blogPost.DetailsRouteValues());
 			return View(blogPost);
+		}
+
+		private void EnforceCanonicalUrl(RouteValueDictionary routeValues)
+		{
+			string canonicalPathAndQuery = Url.RouteUrl(routeValues);
+			if(Request.Url.PathAndQuery != canonicalPathAndQuery)
+				Response.RedirectPermanent(canonicalPathAndQuery);
 		}
     }
 }
