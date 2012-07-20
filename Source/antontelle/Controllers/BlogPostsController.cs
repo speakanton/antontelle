@@ -90,11 +90,13 @@ namespace antontelle.Controllers
 		public ViewResult Details(int id)
 		{
 			var blogPost = BlogPostService.BlogPosts().First(b => b.Id == id);
-			EnforceCanonicalUrl(blogPost.DetailsRouteValues());
+
+			// can lead to another request
+			EnforceCanonicalUrlWithPossibleRedirect(blogPost.DetailsRouteValues());
 			return View(blogPost);
 		}
 
-		private void EnforceCanonicalUrl(RouteValueDictionary routeValues)
+		private void EnforceCanonicalUrlWithPossibleRedirect(RouteValueDictionary routeValues)
 		{
 			string canonicalPathAndQuery = Url.RouteUrl(routeValues);
 			if(Request.Url.PathAndQuery != canonicalPathAndQuery)
