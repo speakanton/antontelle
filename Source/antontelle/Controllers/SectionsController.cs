@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Dynamic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using antontelle.Models;
 
 namespace antontelle.Controllers
 {
-	public class SampleObject : DynamicObject
-	{
-		public override bool TryGetMember(
-			GetMemberBinder binder, out object result)
-		{
-			result = binder.Name;
-			return true;
-		}
-	}
-
 	public class SearchViewModel
 	{
 		public IList<Section> Sections { get; set; }
@@ -27,7 +14,6 @@ namespace antontelle.Controllers
     {
         //
         // GET: /Sections/
-
 		public ActionResult Index()
 		{
 			var model = new[]
@@ -55,6 +41,5 @@ namespace antontelle.Controllers
 			wrapper.mdl = new SearchViewModel {Sections = model};
 			return View(wrapper);
 		}
-
     }
 }
