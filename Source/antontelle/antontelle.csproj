@@ -84,6 +84,7 @@
     <Compile Include="Models\RoutingUtils.cs" />
     <Compile Include="Models\SearchResultsViewModel.cs" />
     <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Summerizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
